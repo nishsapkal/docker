@@ -3,9 +3,7 @@ node{
     stage ("Checkout sample code")
 	{
 		echo 'Checking out demo codebase'
-		git url: 'https://github.com/edureka-devops/projCert.git'
-		//checkout scm
-		//checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], //userRemoteConfigs: [[url: 'https://github.com/edureka-devops/projCert.git']]])
+		checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: 'docker']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/edureka-devops/projCert.git']]])
 		echo 'Code checkout is completed'
 		
 	}
