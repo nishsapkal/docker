@@ -22,7 +22,12 @@ node{
 		def customImage = docker.build("custom-image:${env.BUILD_ID}")
 		echo 'Image is built successfully. Lets run the contianer'
 		
-		docker run -d -p 9090:80 custom-image:20
+		customImage.image('custom-image:20').withRun('-d=true -p 9090:80') {c ->
+            docker.image('custom-image:20').inside{
+               /*  Do something here inside container  */
+               sh "ls"
+            }
+        }
 	}
 	stage ("Unit Test")
 	{
