@@ -3,7 +3,9 @@ node{
     stage ("Checkout sample code")
 	{
 		echo 'Checking out demo codebase'
-		checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '.']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/edureka-devops/projCert.git']]])
+		//checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: //'RelativeTargetDirectory', relativeTargetDir: '.']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/edureka-devops/projCert.git']]])
+		checkout scm 
+		
 		echo 'Code checkout is completed'
 		
 	
@@ -11,9 +13,9 @@ node{
 	stage ("Build Image")
 	{
 		echo 'Code checkout process starts'
-		url: 'https://github.com/nishsapkal/docker.git'
-		checkout scm
-		echo 'Dockerfile checkout is competed'
+		//url: 'https://github.com/nishsapkal/docker.git'
+		//checkout scm
+		//echo 'Dockerfile checkout is competed'
 		
 		echo 'Set up jenkins permissions to run docker'
 		sh "sudo chown root:jenkins /run/docker.sock"
