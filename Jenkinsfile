@@ -26,12 +26,13 @@ node{
             docker.image("custom-image:${env.BUILD_ID}").withRun{
                /*  Do something here inside container  */
                echo 'Container is running successfully'
+			   stage ("Unit Test")
+					{
+					 
+						echo 'Unit test completed'
+					}
             }
         }
 	}
-	stage ("Unit Test")
-	{
-	 
-		echo 'Unit test completed'
-	}
+	
 }
