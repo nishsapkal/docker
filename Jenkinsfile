@@ -1,22 +1,24 @@
 node{
   
-    stage ("Checkout Image")
+    stage ("Checkout application code")
+	{
+		echo 'Checking out demo codebase'
+		url: 'https://github.com/edureka-devops/projCert.git'
+		checkout scm
+		echo 'Code checkout is completed'
+		
+	}
+	stage ("Checkout and build Image based on latest Dockerfile")
 	{
 		echo 'Code checkout process starts'
-		//git branch: 'devops-demo',
 		url: 'https://github.com/nishsapkal/docker.git'
-		
-		//checkout scm
 		checkout scm
-	
-		//customImage.push()
-		echo 'Code checkout is completed'
-	}
-	stage ("Build Image")
-	{
+		echo 'Dockerfile checkout is competed'
+		
 		echo 'Set up jenkins permissions to run docker'
 		sh "sudo chown root:jenkins /run/docker.sock"
 		echo 'Permission set up properly'
+		
 		def customImage = docker.build("my-image:${env.BUILD_ID}")
 		echo 'Image is built successfully'
 	}
