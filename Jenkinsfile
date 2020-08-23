@@ -19,16 +19,13 @@ node{
 		sh "sudo chown root:jenkins /run/docker.sock"
 		echo 'Permission set up properly'
 		
-		//def customImage = docker.build("custom-image:${env.BUILD_ID}")
+		def customImage = docker.build("custom-image:${env.BUILD_ID}")
+		echo 'Image is built successfully. Lets run the contianer'
 		
-		agent {
-			docker {
-			  image 'custom-image:20'
-			  args '-d -p 9090:80'
-			}
-		}		
+		customImage.inside {
+		  stage("inside image") {
 		
-		
+		}
 	}
 	stage ("Unit Test")
 	{
