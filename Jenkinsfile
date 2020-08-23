@@ -25,7 +25,7 @@ node{
 		docker.image("custom-image:${env.BUILD_ID}").withRun('-d=true -p 9090:80') {c ->
             docker.image("custom-image:${env.BUILD_ID}").inside{
                /*  Do something here inside container  */
-               sh "ls"
+               echo 'Container is running successfully'
             }
         }
 	}
