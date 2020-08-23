@@ -21,14 +21,14 @@ node{
 		echo 'Permission set up properly'
 		
 		def customImage = docker.build("custom-image:${env.BUILD_ID}")
-		echo 'Image is built successfully. Lets run the contianer'
+		echo 'Image is built successfully. Lets run the Container'
 		
-		customImage = docker.image("custom-image:${env.BUILD_ID}").run('-d=true -p 9090:80') 
+
 		
 	}
-	stage ("Unit Test")
+	stage ("Run Container")
 	{
-	 echo 'Unit test completed for image' 
+	 	customImage = docker.image("custom-image:${env.BUILD_ID}").run('-d=true -p 9090:80') 
 	}
 	
 	
