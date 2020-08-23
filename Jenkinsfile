@@ -5,7 +5,7 @@ node{
 		echo 'Code checkout process starts'
 		//git branch: 'devops-demo',
 		url: 'https://github.com/nishsapkal/docker.git'
-		//checkout scm
+		checkout scm
 		echo 'Code checkout is completed'
 	}
 	stage ("Build")
