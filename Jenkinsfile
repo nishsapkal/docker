@@ -22,11 +22,7 @@ node{
 		def customImage = docker.build("custom-image:${env.BUILD_ID}")
 		echo 'Image is built successfully. Lets run the contianer'
 		
-		customImage.inside {
-		  stage("inside image") {
-		}
-		
-		}
+		customImage.inside("-u root --entrypoint='apachectl'") {}
 	}
 	stage ("Unit Test")
 	{
