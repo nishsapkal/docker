@@ -8,7 +8,7 @@ node{
 		echo 'Code checkout is completed'
 		
 	}
-	stages{
+	
 		stage ("Checkout and build Image based on latest Dockerfile")
 		{
 			echo 'Code checkout process starts'
@@ -35,6 +35,6 @@ node{
 		{
 		 echo 'Unit test completed for image' 
 		}
-	}
+	
 	
 }
