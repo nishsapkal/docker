@@ -1,6 +1,6 @@
 node{
   
-    stage ("Checkout")
+    stage ("Checkout Image")
 	{
 		echo 'Code checkout process starts'
 		//git branch: 'devops-demo',
@@ -8,16 +8,17 @@ node{
 		
 		//checkout scm
 		checkout scm
-		def customImage = docker.build("my-image:${env.BUILD_ID}")
+	
 		//customImage.push()
 		echo 'Code checkout is completed'
 	}
-	stage ("Build")
+	stage ("Build Image")
 	{
-	  //  build 'nehr-pipeline'
-		echo 'Code build is started'
-	//	bat 'gradlew.bat clean build'
-		echo 'Code build is completed'
+		echo 'Set up jenkins permissions to run docker'
+		sh "sudo chown root:jenkins /run/docker.sock"
+		echo 'Permission set up properly'
+		def customImage = docker.build("my-image:${env.BUILD_ID}")
+		echo 'Image is built successfully'
 	}
 	stage ("Unit Test")
 	{
