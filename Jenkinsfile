@@ -22,8 +22,8 @@ node{
 		def customImage = docker.build("custom-image:${env.BUILD_ID}")
 		echo 'Image is built successfully. Lets run the contianer'
 		
-		customImage.run {['-p 9090:80']
-			
+		customImage.inside {
+			 sh 'echo "Tests passed"'
 		}
 	}
 	stage ("Unit Test")
