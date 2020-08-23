@@ -9,7 +9,7 @@ node{
 		
 	}
 	stages{
-	def customImage
+	
 		stage ("Checkout and build Image based on latest Dockerfile")
 		{
 			echo 'Code checkout process starts'
@@ -21,7 +21,7 @@ node{
 			sh "sudo chown root:jenkins /run/docker.sock"
 			echo 'Permission set up properly'
 			
-			customImage = docker.build("custom-image:${env.BUILD_ID}")
+			def customImage = docker.build("custom-image:${env.BUILD_ID}")
 			echo 'Image is built successfully. Lets run the Container'
 			
 			docker.image("custom-image:${env.BUILD_ID}").withRun('-d=true -p 9090:80') {c ->
