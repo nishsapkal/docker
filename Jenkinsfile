@@ -5,7 +5,11 @@ node{
 		echo 'Code checkout process starts'
 		//git branch: 'devops-demo',
 		url: 'https://github.com/nishsapkal/docker.git'
+		
+		//checkout scm
 		checkout scm
+		def customImage = docker.build("my-image:${env.BUILD_ID}")
+		//customImage.push()
 		echo 'Code checkout is completed'
 	}
 	stage ("Build")
