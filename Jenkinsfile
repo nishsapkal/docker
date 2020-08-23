@@ -12,7 +12,7 @@ node{
 	{
 	  //  build 'nehr-pipeline'
 		echo 'Code build is started'
-		bat 'gradlew.bat clean build'
+	//	bat 'gradlew.bat clean build'
 		echo 'Code build is completed'
 	}
 	stage ("Unit Test")
