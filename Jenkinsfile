@@ -3,9 +3,9 @@ node{
     stage ("Checkout")
 	{
 		echo 'Code checkout process starts'
-		git branch: 'devops-demo',
-		url: 'https://github.com/jenkinsci/jenkins.git'
-		checkout scm
+	//	git branch: 'devops-demo',
+		//url: 'https://github.com/jenkinsci/jenkins.git'
+		//checkout scm
 		echo 'Code checkout is completed'
 	}
 	stage ("Build")
