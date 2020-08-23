@@ -18,8 +18,8 @@ node{
 	stage ("Unit Test")
 	{
 	  //  build 'nehr-pipeline'
-		echo 'Unit Test in preogress'
-		bat 'gradlew.bat test'
+		//echo 'Unit Test in preogress'
+		//bat 'gradlew.bat test'
 		echo 'Unit test completed'
 	}
 }
