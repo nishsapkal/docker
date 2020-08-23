@@ -6,7 +6,7 @@ node{
 		checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [[$class: 'RelativeTargetDirectory', relativeTargetDir: '.']], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/edureka-devops/projCert.git']]])
 		echo 'Code checkout is completed'
 		
-	}
+	
 	
 	stage ("Build Image")
 	{
@@ -34,5 +34,6 @@ node{
 	 	echo 'Unit test build in progress'
 	}
 	
+	}
 	
 }
