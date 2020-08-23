@@ -24,7 +24,7 @@ node{
 		
 		customImage.inside {
 		  stage("inside image") {
-
+		}
 		
 		}
 	}
