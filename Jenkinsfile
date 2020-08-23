@@ -22,8 +22,8 @@ node{
 		def customImage = docker.build("custom-image:${env.BUILD_ID}")
 		echo 'Image is built successfully. Lets run the contianer'
 		
-		docker.image("custom-image:${env.BUILD_ID}").withRun('-p 9090:80') {c ->
-            docker.image("custom-image:${env.BUILD_ID}").inside{
+		docker.image("custom-image:${env.BUILD_ID}").withRun('-d=true -p 9090:80') {c ->
+            docker.image("custom-image:${env.BUILD_ID}").withRun{
                /*  Do something here inside container  */
                echo 'Container is running successfully'
             }
