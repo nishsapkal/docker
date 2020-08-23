@@ -9,7 +9,7 @@ node{
 		
 	}
 	
-	stage ("Checkout and build Image based on latest Dockerfile")
+	stage ("Build Image")
 	{
 		echo 'Code checkout process starts'
 		url: 'https://github.com/nishsapkal/docker.git'
@@ -21,14 +21,18 @@ node{
 		echo 'Permission set up properly'
 		
 		def customImage = docker.build("custom-image:${env.BUILD_ID}")
-		echo 'Image is built successfully. Lets run the Container'
-		
-
-		
+		echo 'Image is built successfully.'
+			
 	}
 	stage ("Run Container")
 	{
+		echo 'Start running container'
 	 	customImage = docker.image("custom-image:${env.BUILD_ID}").run('-d=true -p 9090:80') 
+		echo 'Container is runnning successfully'
+	}
+	stage ("Unit Test")
+	{
+	 	echo 'Unit test build in progress'
 	}
 	
 	
