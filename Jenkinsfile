@@ -1,6 +1,6 @@
 node{
   
-    stage ("Checkout application code")
+    stage ("Checkout sample code")
 	{
 		echo 'Checking out demo codebase'
 		url: 'https://github.com/edureka-devops/projCert.git'
