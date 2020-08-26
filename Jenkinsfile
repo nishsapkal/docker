@@ -33,7 +33,9 @@ node{
 	}
 	stage ("Unit Test")
 	{
-	 	echo 'Unit test build in progress'
+	 	echo 'Unit test started'
+		sh "java -jar AboutUs.jar"
+		echo 'unit test ends'
 	}
 	
 	}
