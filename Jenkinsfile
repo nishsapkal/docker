@@ -32,18 +32,14 @@ node{
 		def custContainer=customImage.run('-d=true -p 9090:80') 
 		echo 'Container is runnning successfully'
 	}
-	try {
-		stage ("Unit Test")
-		{
-			echo 'Unit test started'
-			sh "java -jar AboutUs.jar"
-			echo 'unit test ends'
-		}
-	}catch{
-		custContainer.stop()
+
+	stage ("Unit Test")
+	{
+		echo 'Unit test started'
+		sh "java -jar AboutUs.jar"
+		echo 'unit test ends'
 	}
-	
-	
+
 	stage ("Stop Container")
 	{
 		custContainer.stop()
