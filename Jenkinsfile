@@ -29,20 +29,18 @@ node{
 		{
 			echo 'Start running container'
 			customImage = docker.image("custom-image:${env.BUILD_ID}")
-			def custContainer=customImage.run('-d=true -p 9090:80') 
+			def custContainer = customImage.run('-d=true -p 9090:80') 
 			echo 'Container is runnning successfully'
-		}
-
-		stage ("Unit Test")
-		{
-			echo 'Unit test started'
-			sh "java -jar AboutUs.jar"
-			echo 'Unit test ends'
-		}
-
-		stage ("Stop Container")
-		{
+				stage ("Unit Test")
+				{
+					echo 'Unit test started'
+					sh "java -jar AboutUs.jar"
+					echo 'Unit test ends'
+				}
+			echo 'Stop container'
 			custContainer.stop()
 		}
+
+		
 	}
 }
