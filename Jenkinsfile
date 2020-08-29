@@ -40,8 +40,9 @@ node{
 		echo 'unit test ends'
 	}
 
-	stage ("Stop Container")
-	{
-		custContainer.stop()
+		stage ("Stop Container")
+		{
+			custContainer.stop()
+		}
 	}
 }
