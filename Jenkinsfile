@@ -35,9 +35,13 @@ node{
 				{
 					echo 'Unit test started'
 					sh "java -jar AboutUs.jar"
-					echo 'Unit test ends'
+					echo 'Unit test executed successfully'
 				}
-			echo 'Stop container'
+			
+		}
+		stage ("Stop container")
+		{
+			echo 'Lets stop the running container'
 			custContainer.stop()
 		}
 
