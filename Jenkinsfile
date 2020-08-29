@@ -43,7 +43,7 @@ node{
 		custContainer.stop()
 	}
 	
-	}
+	
 	stage ("Stop Container")
 	{
 		custContainer.stop()
