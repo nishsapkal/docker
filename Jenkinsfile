@@ -7,9 +7,9 @@ node{
 		checkout scm 
 		
 		echo 'Code checkout is completed'
-	
-		def customImage;
-		def custContainer;
+		
+		
+		
 		stage ("Build Image")
 		{
 			echo 'Code checkout process starts'
@@ -21,15 +21,15 @@ node{
 			sh "sudo chown root:jenkins /run/docker.sock"
 			echo 'Permission set up properly'
 			
-			 customImage = docker.build("custom-image:${env.BUILD_ID}")
+			def customImage = docker.build("custom-image:${env.BUILD_ID}")
 			echo 'Image is built successfully.'
 				
 		}
 		stage ("Run Container")
 		{
 			echo 'Start running container'
-			customImage = docker.image("custom-image:${env.BUILD_ID}").
-			custContainer=customImage.run('-d=true -p 9090:80') 
+			customImage = docker.image("custom-image:${env.BUILD_ID}")
+			def custContainer=customImage.run('-d=true -p 9090:80') 
 			echo 'Container is runnning successfully'
 		}
 
@@ -37,7 +37,7 @@ node{
 		{
 			echo 'Unit test started'
 			sh "java -jar AboutUs.jar"
-			echo 'unit test ends'
+			echo 'Unit test ends'
 		}
 
 		stage ("Stop Container")
