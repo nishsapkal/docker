@@ -40,7 +40,7 @@ node{
 		stage ("Stop container")
 		{
 			echo 'Lets stop the running container'
-			custContainer.stop()
+			//custContainer.stop()
 		}
 
 		
