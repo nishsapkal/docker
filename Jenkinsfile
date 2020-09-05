@@ -34,11 +34,10 @@ node{
 					echo 'Unit test started'
 					try{
 						sh "java -jar AboutUs.jar"
-						echo 'Unit test executed successfully'
+						echo 'Automation test executed successfully'
 					}catch(exc){
-							echo 'Automation tests Failed. Lets remove container'
+							echo 'Automation tests Failed. Let's remove container'
 							custContainer.stop();
-						
 					}
 					
 				}
