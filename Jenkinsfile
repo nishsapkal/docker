@@ -45,7 +45,9 @@ node{
 				}
 			
 		}
-			post {
+		
+	}
+	post {
 			
 			success {
 				echo 'Pipeline is successfull. Stopping container'
@@ -55,9 +57,6 @@ node{
 			failure {
 				echo 'pipeline is failed :(.'
 			}
-			
+				
 		}
-		
-
-	}
 }
