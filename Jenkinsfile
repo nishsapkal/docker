@@ -38,6 +38,7 @@ node{
 					}catch(exc){
 							echo 'Caught exception while running unit test. Lets stop and remove container'
 							custContainer.stop();
+							custContainer.remove();
 						//throw
 					}
 					
