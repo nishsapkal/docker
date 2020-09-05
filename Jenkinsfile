@@ -39,7 +39,6 @@ node{
 							echo 'Automation tests Failed. Lets remove container'
 							custContainer.stop();
 						
-						
 					}
 					
 				}
@@ -47,16 +46,6 @@ node{
 		}
 		
 	}
-	post {
-			
-			success {
-				echo 'Pipeline is successfull. Stopping container'
-				custContainer.stop();
-			}
-			
-			failure {
-				echo 'pipeline is failed :(.'
-			}
-				
-		}
+	
+	
 }
