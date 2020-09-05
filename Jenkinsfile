@@ -36,7 +36,7 @@ node{
 						sh "java -jar AboutUs.jar"
 						echo 'Automation test executed successfully'
 					}catch(exc){
-							echo 'Automation tests Failed. Let's remove container'
+							echo 'Automation tests Failed. Lets remove container'
 							custContainer.stop();
 					}
 					
