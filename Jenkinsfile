@@ -27,22 +27,24 @@ node{
 		{
 			echo 'Start running container'
 			customImage = docker.image("custom-image:${env.BUILD_ID}")
-			 custContainer = customImage.run('-d=true -p 9090:80') 
+			custContainer = customImage.run('-d=true -p 9090:80') 
 			echo 'Container is runnning successfully'
 				stage ("Unit Test")
 				{
 					echo 'Unit test started'
-					sh "java -jar AboutUs.jar"
-					echo 'Unit test executed successfully'
+					try{
+						sh "java -jar AboutUs.jar"
+						echo 'Unit test executed successfully'
+					}catch(exc){
+							echo 'Caught exception while running unit test. Lets stop and remove container'
+							custContainer.stop();
+						throw
+					}
+					
 				}
 			
 		}
-		stage ("Stop container")
-		{
-			echo 'Lets stop the running container'
-			//custContainer.stop()
-		}
-
 		
+
 	}
 }
