@@ -36,13 +36,25 @@ node{
 						sh "java -jar AboutUs.jar"
 						echo 'Unit test executed successfully'
 					}catch(exc){
-							echo 'Caught exception while running unit test. Lets stop and remove container'
+							echo 'Automation tests Failed. Lets remove container'
 							custContainer.stop();
-							custContainer.remove();
-						//throw
+						
+						
 					}
 					
 				}
+			
+		}
+			post {
+			
+			success {
+				echo 'Pipeline is successfull. Stopping container'
+				custContainer.stop();
+			}
+			
+			failure {
+				echo 'pipeline is failed :(.'
+			}
 			
 		}
 		
