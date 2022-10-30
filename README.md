@@ -4,8 +4,8 @@ Holding area for all docker related changes
 First commit
 Simple docker file which performs below operations
 
-1. Pull mi roservice image from docker hub https://hub.docker.com/repository/docker/nishsapkal/microservices
-2. run rest-service-0.0.1-SNAPSHOT.jar spring boot rest web service project on port 8080
+1. Pull microservice image from docker hub https://hub.docker.com/repository/docker/nishsapkal/microservices
+2. run spring boot rest web service project rest-service-0.0.1-SNAPSHOT.jar  on port 8080
 
 
 Please follow below steps to create image and access Rest web service on port 9090
